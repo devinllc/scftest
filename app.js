@@ -2,7 +2,7 @@ const express = require('express');
 const db = require('./config/db');
 const walletRouter = require('./routes/walletRoutes');
 const userRouter = require('./routes/userRoutes');
-const cors = require('cors');
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
