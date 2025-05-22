@@ -4,6 +4,8 @@ const Wallet = require('../model/walletModel');
 const bodyParser = require('body-parser');
 const router = express.Router();
 
+
+
 router.post('/create', async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
