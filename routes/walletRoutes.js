@@ -4,6 +4,9 @@ const router = express.Router();
 
 
 router.get('/balance', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     const { userId } = req.query;  // ✅ Works in GET requests
 
     walletModel.findOne({ userId })
@@ -20,6 +23,9 @@ router.get('/balance', (req, res) => {
 });
 
 router.post('/addmoney', async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     const { userId, amount } = req.body;
 
     if (!userId || !amount) {
@@ -44,6 +50,9 @@ router.post('/addmoney', async (req, res) => {
 });
 
 router.post('/sendmoney', async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     const { userId, amount } = req.body;
 
     if (!userId || !amount) {
@@ -72,6 +81,9 @@ router.post('/sendmoney', async (req, res) => {
 });
 
 router.post('/addpendingmoney', async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     const { userId, amount } = req.body;
 
     if (!userId || !amount) {

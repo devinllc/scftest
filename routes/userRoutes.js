@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const router = express.Router();
 
 router.post('/create', async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     const data = req.body;
     if (!data.name || !data.email || !data.password) {
         return res.status(400).json({ message: 'All fields are required' });
@@ -27,6 +30,9 @@ router.post('/create', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     const { email, password } = req.body;
     try {
         const user = await userModel.findOne({ email, password });
@@ -40,6 +46,9 @@ router.post('/login', async (req, res) => {
     }
 });
 router.get('/getall', async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     try {
         const users = await userModel.find();
         res.status(200).json(users);
@@ -49,6 +58,9 @@ router.get('/getall', async (req, res) => {
     }
 });
 router.get('/get/:id', async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     const { id } = req.params;
     try {
         const user = await userModel.findById(id);
@@ -63,6 +75,9 @@ router.get('/get/:id', async (req, res) => {
 });
 
 router.put('/update/:id', async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     const { id } = req.params;
     const { name, email, password } = req.body;
     try {
